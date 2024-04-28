@@ -1,23 +1,10 @@
 import express from 'express';
+import { formularioLogin } from '../controllers/usuario.controller.js';
+import { formularioRegistro } from '../controllers/usuario.controller.js';
 
 const router = express.Router();
 
-router.get('/nosotros', ( req, resp ) => {
-    resp.send('Información sobre nosotros');
-});
-
-router.route('/')
-    .get( ( req, resp ) => {
-        resp.json({
-            msg: 'Bienvenido',
-            code: 200
-        });
-    })
-    .post( ( req, resp ) => {
-        resp.json({
-            msg: 'Respuesta tipo Post',
-            code: 201
-        });
-    });
+router.get('/login', formularioLogin);
+router.get('/registro', formularioRegistro);
 
 export default router;

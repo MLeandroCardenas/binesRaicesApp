@@ -10,5 +10,12 @@ app.listen(port, () => {
     console.log(`Servidor funcionando en el puerto ${port}`);
 });
 
+// habilitar template pug
+app.set('view engine', 'pug');
+app.set('views', './views');
+
+// carpeta publica
+app.use( express.static('public') );
+
 // Routing
-app.use('/', usuarioRouter);
+app.use('/auth', usuarioRouter);
